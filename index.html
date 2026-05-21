@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق رحلة | مستشارك الذكي للهجرة والسفر مجاناً</title>
+    <!-- مفاتيح الـ SEO لشركة ESO لتصدر نتائج البحث -->
+    <meta name="description" content="تطبيق رحلة لتقييم فرص السفر والهجرة للمصريين مجاناً. اكتشف طرق الدراسة والعمل في ألمانيا، كندا، روسيا، الإمارات، والبرتغال بالروابط الرسمية.">
+    <meta name="keywords" content="هجرة المصريين لكندا, السفر لأوروبا الشرقية للدراسة, تأشيرة العمل الحر في البرتغال, كارت الفرصة ألمانيا, مستشار الهجرة مجانا">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- هيدر التطبيق -->
+    <header>
+        <h1>✈️ تطبيق رِحْلَة</h1>
+        <p>مستشارك الاستشاري الذكي لتقييم فرص السفر والهجرة مجاناً 🇨🇦 🇩🇪 🇷🇺 🇵🇹 🇦🇪</p>
+    </header>
+
+    <!-- صندوق الشات التفاعلي -->
+    <div class="chat-container">
+        <div class="chat-box" id="chatBox">
+            <!-- الرسالة الترحيبية التلقائية -->
+            <div class="message bot">
+                أهلاً بك يا صديقي في تطبيق <strong>"رحلة"</strong> المقدم مجاناً بالكامل من شركة <strong>ESO</strong>. 🌟<br><br>
+                هدفنا مساعدتك في معرفة طريقك الصحيح للسفر بناءً على ظروفك وإمكانياتك الحقيقية بدون مكاتب نصابة وبالمستندات والروابط الرسمية.<br><br>
+                مستعد لتبدأ رحلة بناء مستقبلك؟
+            </div>
+        </div>
+        
+        <!-- منطقة الأزرار والخيارات -->
+        <div class="options-area" id="optionsArea">
+            <button class="option-btn" style="text-align:center;" onclick="startSurvey()">🚀 ابدأ التقييم المجاني الآن</button>
+        </div>
+    </div>
+
+    <!-- شريط أعلام الدول التفاعلي (ميزة إسلام الإبداعية) -->
+    <div class="flags-bar">
+        <p>💡 اضغط على علم أي دولة لمشاهدة الروابط الرسمية وعناوين السفارات مباشرة في الشات:</p>
+        <div class="flags-container">
+            <span class="flag-icon" title="روسيا" onclick="showCountryDirect('russia')">🇷🇺</span>
+            <span class="flag-icon" title="ألمانيا" onclick="showCountryDirect('germany')">🇩🇪</span>
+            <span class="flag-icon" title="كندا" onclick="showCountryDirect('canada')">🇨🇦</span>
+            <span class="flag-icon" title="الإمارات" onclick="showCountryDirect('uae')">🇦🇪</span>
+            <span class="flag-icon" title="البرتغال" onclick="showCountryDirect('portugal')">🇵🇹</span>
+        </div>
+    </div>
+
+    <!-- فوتر روابط إسلام الهاشمي (ESO Branding) -->
+    <footer>
+        <p>حقوق النشر والطبع محفوظة © 2026 | تم التطوير وبناء المنطق بواسطة <strong>إسلام الهاشمي</strong> (شركة ESO)</p>
+        <div class="social-links">
+            <a href="https://tiktok.com/@eslamhamadi5" target="_blank">🎵 تيك توك</a>
+            <a href="https://t.me/eslamhamadi" target="_blank">✈️ تليجرام</a>
+            <a href="https://www.facebook.com/share/18hZ4pXYc8/" target="_blank">🟦 فيسبوك (بروفايل)</a>
+            <a href="https://www.facebook.com/share/1BGmLd1zvh/" target="_blank">📖 فيسبوك (رابط إضافي)</a>
+            <a href="https://wa.me/201005727778" target="_blank">🟢 واتساب: 01005727778</a>
+        </div>
+    </footer>
+
+    <!-- استدعاء ملفات الجافا سكريبت بالترتيب الصحيح لمنع أي هلوسة برمجية -->
+    <script id="chatVariables">
+        // ربط عناصر الواجهة بملف اللوجك
+        const chatBox = document.getElementById("chatBox");
+        const optionsArea = document.getElementById("optionsArea");
+
+        // دالة لعرض داتا الدولة مباشرة عند الضغط على علمها أسفل الصفحة
+        function showCountryDirect(countryKey) {
+            const country = countriesData[countryKey];
+            let directHTML = `
+                <div class="report-card" style="border-right-color: var(--secondary);">
+                    <h3 style="color: var(--secondary);">${country.name} - دليل سريع</h3>
+                    <p style="margin: 5px 0;">"${country.slogan}"</p>
+                    <p style="font-size:0.9rem; background:#f9f9f9; padding:8px; border-radius:4px; margin: 10px 0;">📍 <strong>السفارة بالقاهرة:</strong> ${country.embassy}</p>
+                    <ul style="margin-right:20px; font-size:0.9rem;">
+            `;
+            country.links.forEach(link => {
+                directHTML += `<li style="margin-bottom:5px;"><a href="${link.url}" target="_blank" style="color:#2980b9;">${link.title}</a></li>`;
+            });
+            directHTML += `</ul></div>`;
+            addMessage("bot", directHTML);
+        }
+    </script>
+    <script src="database.js"></script>
+    <script src="logic.js"></script>
+</body>
+</html>
